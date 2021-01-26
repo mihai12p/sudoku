@@ -1,4 +1,4 @@
-# sudoku
+# Sudoku
 
 A little sudoku project made for school. It solves the sudoku game from the sudoku.in file then it lets the user to play the game.
 Made using SFML library.
