@@ -1,0 +1,6 @@
+﻿  main.cpp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 256 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  sudoku.vcxproj -> C:\Users\--\Desktop\sudoku\sudoku\x64\Release\sudoku.exe
