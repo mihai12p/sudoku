@@ -2,6 +2,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include <Windows.h>
+#include <chrono>
 
 std::ifstream fin("sudoku.in");
 
@@ -68,6 +69,14 @@ bool checkSudokuCompleted()
 
 int main()
 {
+	const char entryText[] = "Bine ai venit!\n\n"
+							  "Sudoku este un joc popular de logica, un puzzle. Jocul consta in rezolvarea unui tablou cu 9 linii si 9 coloane in cel mai scurt timp posibil "
+							  "astfel incat pe fiecare linie si pe fiecare coloana sa se afle toate numerele de la 1 la 9 fara ca acestea sa se repete. "
+							  "Asta înseamna ca, in fiecare rand, coloana, si patratul delimitat cu linie groasa, trebuie sa fie tocmai cifrele de la 1 la 9 (1, 2, 3, 4, 5, 6, 7, 8, 9). Introducerea valorilor "
+							  "se face inserand, pe rand, numarul liniei si a coloanei elementului pe care vrem sa il inseram, iar apoi valoarea acestuia. Daca elementul face parte din rezolvarea "
+							  "jocului acesta va fi inserat in tabel, in caz contrar acesta nu va fi inserat. Timpul scurs va fi afisat in partea dreapta-jos a tablei. \n\nSucces!";
+	MessageBox(NULL, entryText, "Informatii Sudoku", MB_OK);
+
 	sf::RenderWindow window(sf::VideoMode(1024, 740), "Sudoku!");
 	window.setFramerateLimit(60);
 
@@ -108,14 +117,6 @@ int main()
 	faraSolutie.setStyle(sf::Text::Bold);
 	faraSolutie.setPosition((1024 - faraSolutie.getLocalBounds().width) / 2.0f, (720 - faraSolutie.getLocalBounds().height) / 2.0f);
 
-	sf::Text autor;
-	autor.setString("Mihai");
-	autor.setFont(font);
-	autor.setCharacterSize(24);
-	autor.setFillColor(sf::Color::Cyan);
-	autor.setStyle(sf::Text::Bold);
-	autor.setPosition(1024 - faraSolutie.getLocalBounds().width / 8, 720 - faraSolutie.getLocalBounds().height / 4);
-
 	int i = 1, j = 1;
 	std::vector<sf::Text> texts(82);
 	for (auto it = begin(texts) + 1; it != end(texts); ++it)
@@ -134,8 +135,20 @@ int main()
 
 	window.requestFocus();
 
+	std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
+
 	while (window.isOpen())
 	{
+		std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
+
+		sf::Text autor;
+		autor.setString("Timp scurs: " + std::to_string(std::chrono::duration_cast<std::chrono::seconds>(end - begin).count()) + "s");
+		autor.setFont(font);
+		autor.setCharacterSize(24);
+		autor.setFillColor(sf::Color::Cyan);
+		autor.setStyle(sf::Text::Bold);
+		autor.setPosition(1024 - faraSolutie.getLocalBounds().width / 4 - 40, 720 - faraSolutie.getLocalBounds().height / 4);
+
 		sf::Event event;
 		while (window.pollEvent(event))
 		{
