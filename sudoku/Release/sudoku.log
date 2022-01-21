@@ -1,6 +1,0 @@
-﻿  main.cpp
-main.obj : error LNK2001: unresolved external symbol "public: virtual __thiscall sf::RenderWindow::~RenderWindow(void)" (??1RenderWindow@sf@@UAE@XZ)
-main.obj : error LNK2001: unresolved external symbol "public: __thiscall sf::RenderWindow::RenderWindow(class sf::VideoMode,class sf::String const &,unsigned int,struct sf::ContextSettings const &)" (??0RenderWindow@sf@@QAE@VVideoMode@1@ABVString@1@IABUContextSettings@1@@Z)
-main.obj : error LNK2001: unresolved external symbol "public: __thiscall sf::String::String(char const *,class std::locale const &)" (??0String@sf@@QAE@PBDABVlocale@std@@@Z)
-main.obj : error LNK2001: unresolved external symbol "public: __thiscall sf::VideoMode::VideoMode(unsigned int,unsigned int,unsigned int)" (??0VideoMode@sf@@QAE@III@Z)
-C:\Users\--\Desktop\sudoku\sudoku\Release\sudoku.exe : fatal error LNK1120: 4 unresolved externals
